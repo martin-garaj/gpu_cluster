@@ -17,7 +17,7 @@ This was a fun to program, as I have gained some experience with:
 [main.cpp](./gpu_cluster/source_code/main.cpp): Main file representing _main_ and _worker_ nodes
   - _main_ node is differentiated by [const int] **commRank == ROOT_PROCESS** (defined in [const.h](./ gpu_cluster/source_code/const.h))
   - _worker_ nodes are then all other nodes with **commRank != ROOT_PROCESS**
-  - 
+  
 [Process.cpp](./gpu_cluster/source_code/Process.cpp), [Process.hpp](./gpu_cluster/source_code/Process.hpp): Object representing both _main_ and _worker_ nodes (NOTICE: the same kind of _Process_ object represents different kinds of nodes)
   - NOTICE: The object has a regular OOP structure:
     - [Process.cpp](./gpu_cluster/source_code/Process.cpp) contains implementations of classes and functions 
