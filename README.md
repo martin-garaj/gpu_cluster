@@ -60,3 +60,4 @@ This was a fun to program, as I have gained some experience with:
 
 [/cereal](./gpu_cluster/source_code/cereal/): Parts of [Cereal library](https://uscilab.github.io/cereal/) required to compile the project.
 
+[300000_messages_1009.frontnode.OU](./output/300000_messages_1009.frontnode.OU): Output file produced by _main_ node after the test is finished. Notice [line 110](https://github.com/martin-garaj/gpu_cluster/blob/810cc91483a78c9852e6abf0d0d0d838ba819b0f/output/300000_messages_1009.frontnode.OU#L110), which shows the total amount of transfered data during the test was **15 [TB]**.
