@@ -41,16 +41,22 @@ This was a fun to program, as I have gained some experience with:
 
 ## [GPU](./gpu_cluster/source_code/Cuda/) (CUDA)
 [Cuda_GPU.cu](./gpu_cluster/source_code/Cuda/Cuda_GPU.cu): Class representing GPU from the CPU point of view. Therefore, this object, while using CUDA functions and compiled by CUDA compiler, does not run directly on GPU. 
+
 [Cuda_kernel.cu](./gpu_cluster/source_code/Cuda/Cuda_kernel.cu): This file defines _kernel_execute()_ function, which is a wrapper for a function executed on GPU. The actuall kernel function that is exeuted on GPU is implemented in [kernel_by_ref.cu](./gpu_cluster/source_code/Cuda/kernel_by_ref.cu). See [Cuda_kernel.cuh](./gpu_cluster/source_code/Cuda/Cuda_kernel.cuh) for detailed explanation on why C and C++ does not mix. In short, C++ mangles the names during compilation, C does not mangle the names.
 
 ## [Utility functions](./gpu_cluster/source_code/Utility/)
   - [Console_print.cpp](./gpu_cluster/source_code/Utility/Console_print.cpp): Pretty console output.
   - [Stop_watch.cpp](gpu_cluster/source_code/Utility/Stop_watch.cpp): Time measurements.
  
+ 
 ## Other files
 [return_values.h](./gpu_cluster/source_code/Utility/return_values.h): Define unified return values.
+
 [const.h](./gpu_cluster/source_code/const.h): Constants for CPU.
+
 [config_GPU.h](./gpu_cluster/source_code/config_GPU.h): Constants for GPU.
-[Makefile](./gpu_cluster/source_code/Makefile): Makefile to locally (on cluster) compile the source files and generate executable _test\_framework_
+
+[Makefile](./gpu_cluster/source_code/Makefile): Makefile to locally (on cluster) compile the source files and generate executable _test\_framework_.
+
 [/cereal](./gpu_cluster/source_code/cereal/): Parts of [Cereal library](https://uscilab.github.io/cereal/) required to compile the project.
 
