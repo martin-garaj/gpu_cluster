@@ -50,13 +50,19 @@ This was a fun to program, as I have gained some experience with:
  
  
 ## Other files
+[Makefile](./source_code/Makefile): Makefile to locally (on cluster) compile the source files and generate executable _test\_framework_.
+
+[compile.sh](./compile.sh): Shell script to compile the _source/_code_.
+
+[jobrun.sh](./jobrun.sh): Shell script to schedule resource allocation using [pbs_script.scr](./pbs_script.scr).
+
+[recompile_jobrun.sh](./recompile_jobrun.sh): Recompile and schedule resource allocation (combines [compile.sh](./compile.sh) and [jobrun.sh](./jobrun.sh)).
+
 [return_values.h](./source_code/Utility/return_values.h): Define unified return values.
 
 [const.h](./source_code/const.h): Constants for CPU.
 
 [config_GPU.h](./source_code/config_GPU.h): Constants for GPU.
-
-[Makefile](./source_code/Makefile): Makefile to locally (on cluster) compile the source files and generate executable _test\_framework_.
 
 [/cereal](./source_code/cereal/): Parts of [Cereal library](https://uscilab.github.io/cereal/) required to compile the project.
 
