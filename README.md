@@ -21,7 +21,7 @@ This was a fun to program, as I have gained some experience with:
 [Process.cpp](./gpu_cluster/source_code/Process.cpp), [Process.hpp](./gpu_cluster/source_code/Process.hpp): Object representing both _main_ and _worker_ nodes (NOTICE: the same kind of _Process_ object represents different kinds of nodes)
   - NOTICE: The object has a regular OOP structure:
     - [Process.cpp](./gpu_cluster/source_code/Process.cpp) contains implementations of classes and functions 
-    - [Process.hpp](./gpu_cluster/source_code/Process.hpp) contains declarations + implementations of _template_ functions (template functions cannot be directly compiled from implementation in .hpp file)
+    - [Process.hpp](./gpu_cluster/source_code/Process.hpp) contains declarations + implementations of [template functions](https://github.com/martin-garaj/gpu_cluster/blob/45a0ebc99051b16a3dbca8e8fcef00032a10187a/source_code/Process.hpp#L114) (template functions cannot be directly compiled from implementation in .hpp file)
 
 
 ## CUDA<->C++ (shared memory)
