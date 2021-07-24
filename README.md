@@ -10,7 +10,5 @@ This was a fun to program, as I have gained some experience with:
   - general _Object Oriented Programming_ concepts to not get lost on the way :D
 
 # File description
-[filename.txt](./path_to_txt/filename.txt): the main file documenting the development of this project
+[pbs_script.scr](./gpu_cluster/pbs_script.scr): PBS Pro script to allocate resource and run the user program in ./source_code/test_framework ([line 109](https://github.com/martin-garaj/gpu_cluster/blob/fcde60d0c0ebed684a9ed1386eee799844226eda/pbs_script.scr#L109))
 
-
-some small changes
