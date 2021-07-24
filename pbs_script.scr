@@ -1,0 +1,113 @@
+### //=================================================================//
+### //                         CREDITS                                 //
+### //=================================================================//
+### PBS Pro Script for HPC cluster
+### Martin Garaj 11/2017
+### garaj.martin@gmail.com
+
+
+### //=================================================================//
+### //                         PBS Pro SCRIPT                          //
+### //=================================================================//
+#!/bin/bash
+### Job name
+#PBS -N test_framework
+
+### Output files
+#PBS -o ./output/
+#PBS -e /export/home/ra2/test_cuda/test_cuda_v0_2/error/
+
+### Queue name
+#PBS -q workq
+
+### Request resources
+#PBS -l walltime=00:02:00
+### Signle node
+#PBS -l select=1:mpiprocs=9:host=compute1:ncpus=9:ngpus=8:mem=10000mb
+### 2 Nodes
+###PBS -l select=1:mpiprocs=1:host=compute1:ncpus=1:ngpus=1:mem=10000mb+1:mpiprocs=1:host=compute2:ncpus=1:ngpus=1:mem=10000mb
+
+### //=================================================================//
+### //                         EXAMPLE OF RESOURCE ALLOCATION          //
+### //=================================================================//
+### Following line instructs the PBSpro to allocate resources :
+### #PBS -l select=1:ncpus=1:mpiprocs=1:host=compute5+1:ncpus=3:ngpus=1:mpiprocs=3:host=compute1+1:ncpus=2:ngpus=1:mpiprocs=2:host=compute4
+### ** Notice that for this particular cluster, the value of 'ngpus' parameter equal to 1, provide access to ALL GPUs at the cluster node.
+###    This behaviour should be corrected by cluster administrator.
+### 
+### The result of allocation is a list of cluster nodes, stored in $PBS_NODEFILE file :
+### compute5.hpc.chuhai.edu.hk
+### compute1.hpc.chuhai.edu.hk
+### compute1.hpc.chuhai.edu.hk
+### compute1.hpc.chuhai.edu.hk
+### compute4.hpc.chuhai.edu.hk
+### compute4.hpc.chuhai.edu.hk
+### 
+### Running then 6 MPI processes :
+### mpirun -np 6 <MPI_application>
+### 
+### The MPI processes are distributed in roud-robin fashion :
+### compute5.hpc.chuhai.edu.hk -> MPI process 0
+### compute1.hpc.chuhai.edu.hk -> MPI process 1
+### compute1.hpc.chuhai.edu.hk -> MPI process 2
+### compute1.hpc.chuhai.edu.hk -> MPI process 3
+### compute4.hpc.chuhai.edu.hk -> MPI process 4
+### compute4.hpc.chuhai.edu.hk -> MPI process 5
+### 
+### For unknown reason, the mpirun / mpiexec --hostfile option is ignored, and the default $PBS_NODEFILE is used as hostfile.
+### The above example proves that the MPI processes are executed in predictable manner, enabling the user to specify
+### the behaviour (in code), as required by the application, without further checking.
+
+### //=================================================================//
+### //                         E-MAIL NOTIFICATION SETTINGS            //
+### //=================================================================//
+### Send email on abort, begin and end
+#PBS -m abe
+### Specify mail recipient
+#PBS -M garaj.martin@gmail.com
+
+
+
+echo //=================================================================//
+echo "//                         AVAILABLE PBS MODULES                   //"
+echo //=================================================================//
+module avail
+
+echo //=================================================================//
+echo "//                         AVAILABLE CLUSTER NODES                 //"
+echo //=================================================================//
+pbsnodes -a | grep host | sort | uniq -c
+
+echo //=================================================================//
+echo "//                         PBS ENV VARIABLES                       //"
+echo //=================================================================//
+cd $PBS_O_WORKDIR
+echo PBS_O_HOST=$PBS_O_HOST
+echo PBS_O_WORKDIR=$PBS_O_WORKDIR
+echo PBS_O_QUEUE=$PBS_O_QUEUE
+echo PBS_JOBID=$PBS_JOBID
+echo PBS_JOBNAME=$PBS_JOBNAME
+echo PBS_QUEUE=$PBS_QUEUE
+
+echo //=================================================================//
+echo "//                         CURRENT JOBS RUNNING                    //"
+echo //=================================================================//
+qstat -n
+
+echo //=================================================================//
+echo "//                         PBS NODE FILE                           //"
+echo //=================================================================//
+cat $PBS_NODEFILE
+
+echo //=================================================================//
+echo "//                         PROGRAM START                           //"
+date "+//                         %H:%M:%S   %d/%m/%y                     //"         
+echo //=================================================================//
+# Change to program directory
+# cd ~/test_cuda/test_framework
+# start your program
+mpirun -np 9 -mca btl ^openib ./source_code/test_framework
+echo //=================================================================//
+echo "//                         PROGRAM END                             //"
+date "+//                         %H:%M:%S   %d/%m/%y                     //"
+echo //=================================================================//

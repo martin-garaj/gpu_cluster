@@ -1,0 +1,124 @@
+//=================================================================//
+//                         AVAILABLE PBS MODULES                   //
+//=================================================================//
+
+--------------------- /opt/ohpc/pub/moduledeps/gnu-openmpi ---------------------
+   adios/1.11.0    mpiP/3.4.1              petsc/3.7.5        scorep/3.0
+   boost/1.63.0    mumps/5.0.2             phdf5/1.8.17       sionlib/1.7.0
+   fftw/3.3.4      netcdf/4.4.1.1          scalapack/2.0.2    superlu_dist/4.2
+   hypre/2.11.1    netcdf-cxx/4.3.0        scalasca/2.3.1     tau/2.26
+   imb/4.1         netcdf-fortran/4.4.4    scipy/0.19.0       trilinos/12.10.1
+
+------------------------- /opt/ohpc/pub/moduledeps/gnu -------------------------
+   R_base/3.3.2    metis/5.1.0     numpy/1.11.1       openmpi/1.10.6 (L)
+   gsl/2.2.1       mpich/3.2       ocr/1.0.1          pdtoolkit/3.23
+   hdf5/1.8.17     mvapich2/2.2    openblas/0.2.19    superlu/5.2.1
+
+-------------------------- /opt/ohpc/pub/modulefiles ---------------------------
+   EasyBuild/3.1.2           gnu/5.4.0  (L)    prun/1.1        (L)
+   autotools          (L)    ohpc       (L)    valgrind/3.11.0
+   clustershell/1.7.2        papi/5.4.3
+
+  Where:
+   L:  Module is loaded
+
+Use "module spider" to find all possible modules.
+Use "module keyword key1 key2 ..." to search for all possible modules matching
+any of the "keys".
+
+//=================================================================//
+//                         AVAILABLE CLUSTER NODES                 //
+//=================================================================//
+      1      resources_available.host = compute1
+      1      resources_available.host = compute2
+      1      resources_available.host = compute3
+      1      resources_available.host = compute4
+      1      resources_available.host = compute5
+      1      resources_available.host = compute6
+      1      resources_available.host = compute7
+      1      resources_available.host = compute8
+      1      resources_available.host = compute9
+//=================================================================//
+//                         PBS ENV VARIABLES                       //
+//=================================================================//
+PBS_O_HOST=frontnode.hpc.chuhai.edu.hk
+PBS_O_WORKDIR=/export/home/ra2/test_cuda/test_cuda_v0_1
+PBS_O_QUEUE=workq
+PBS_JOBID=1009.frontnode
+PBS_JOBNAME=test_cuda
+PBS_QUEUE=workq
+//=================================================================//
+//                         CURRENT JOBS RUNNING                    //
+//=================================================================//
+
+frontnode: 
+                                                            Req'd  Req'd   Elap
+Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
+--------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
+1009.frontnode  ra2      workq    test_cuda   39187   1   9   10gb 13:45 R 00:00
+   compute1/0*9
+//=================================================================//
+//                         PBS NODE FILE                           //
+//=================================================================//
+compute1.hpc.chuhai.edu.hk
+compute1.hpc.chuhai.edu.hk
+compute1.hpc.chuhai.edu.hk
+compute1.hpc.chuhai.edu.hk
+compute1.hpc.chuhai.edu.hk
+compute1.hpc.chuhai.edu.hk
+compute1.hpc.chuhai.edu.hk
+compute1.hpc.chuhai.edu.hk
+compute1.hpc.chuhai.edu.hk
+//=================================================================//
+//                         PROGRAM START                           //
+//                         00:33:11   06/12/17                     //
+//=================================================================//
+MPI[1]     I am running ...
+MPI[1]     assigned GPU ID : 0, approx NODE ID : 0
+MPI[2]     I am running ...
+MPI[2]     assigned GPU ID : 1, approx NODE ID : 0
+MPI[3]     I am running ...
+MPI[3]     assigned GPU ID : 2, approx NODE ID : 0
+MPI[4]     I am running ...
+MPI[4]     assigned GPU ID : 3, approx NODE ID : 0
+MPI[5]     I am running ...
+MPI[5]     assigned GPU ID : 4, approx NODE ID : 0
+MPI[6]     I am running ...
+MPI[6]     assigned GPU ID : 5, approx NODE ID : 0
+MPI[7]     I am running ...
+MPI[7]     assigned GPU ID : 6, approx NODE ID : 0
+MPI[8]     I am running ...
+MPI[8]     assigned GPU ID : 7, approx NODE ID : 0
+MPI[1]     I have finished ...
+MPI[2]     I have finished ...
+MPI[3]     I have finished ...
+MPI[0]     I have finished ...
+MPI[8]     I have finished ...
+MPI[4]     I have finished ...
+MPI[5]     I have finished ...
+MPI[6]     I have finished ...
+MPI[7]     I have finished ...
+starting time : Wed Dec  6 00:33:33 2017
+ending time   : Wed Dec  6 08:51:05 2017
+MPI[0]     MPI & CUDA Statictics :
+               num of tested MPI Proc : 8 
+               CUDA grid size         : 5000 <<<50*100>>>
+MPI[0]     Data Statictics :
+               grid_in size       : 6560 [kB]
+               grid_out size      : 20 [kB]
+               shared_in size     : 16 [kB]
+               total data sent     : 15744019 [MB]
+               total data received : 48019 [MB]
+               number of errors    : 12000000000 instances
+               errorous messages   : 12000000000/5000 = 24000000000 instances
+               number of messages  : 4800008 instances
+MPI[0]     Timing Statictics :
+               init data            : 2 [ms]
+               average execution    : 98.8893 [ms]
+               deviation execution  : 3.56959 [ms]
+               total execution      : 2.96016e+07 [ms]
+               total ROOT time      : 29851.7 [s]
+//=================================================================//
+//                         PROGRAM END                             //
+//                         08:51:08   06/12/17                     //
+//=================================================================//
