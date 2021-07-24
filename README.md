@@ -21,7 +21,7 @@ This was a fun to program, as I have gained some experience with:
 ## PBS scripts
 [pbs_script.scr](./gpu_cluster/pbs_script.scr): PBS Pro script to allocate resources within cluster and run the executable ([line 109](https://github.com/martin-garaj/gpu_cluster/blob/fcde60d0c0ebed684a9ed1386eee799844226eda/pbs_script.scr#L109))
 
-## [CPU](./gpu_cluster/source_code/) (C++)
+## [CPU](./gpu_cluster/source_code) (C++)
 [main.cpp](./gpu_cluster/source_code/main.cpp): Main file representing _main_ and _worker_ nodes
   - _main_ node is differentiated by [const int] **commRank == ROOT_PROCESS** (defined in [const.h](./gpu_cluster/source_code/const.h))
   - _worker_ nodes are all other nodes with **commRank != ROOT_PROCESS** 
@@ -32,19 +32,19 @@ This was a fun to program, as I have gained some experience with:
     - [Process.hpp](./gpu_cluster/source_code/Process.hpp) contains declarations + implementations of [template functions](https://github.com/martin-garaj/gpu_cluster/blob/45a0ebc99051b16a3dbca8e8fcef00032a10187a/source_code/Process.hpp#L114) (template functions cannot be directly compiled from implementation in .hpp file)
 
 
-## [Unified memory](./gpu_cluster/source_code/Data_objects/) (CUDA<->C++)
+## [Unified memory](./gpu_cluster/source_code/Data_objects) (CUDA<->C++)
 [Managed.cuh](./gpu_cluster/source_code/Data_objects/Managed.cuh): Inheriting from this class allows the object to be _unified memory_ (memory on GPU that is visible from CPU)
   - [GPU_grid_in.cuh)](./gpu_cluster/source_code/Data_objects/GPU_grid_in.cuh): Strucutre sent from _main_ to _worker_ nodes containing data.
   - [GPU_grid_out.cuh](./gpu_cluster/source_code/Data_objects/GPU_grid_out.cuh): Strucutre sent from _workers_ to _main_ node containing results.
   - [GPU_shared_in.cuh](./gpu_cluster/source_code/Data_objects/GPU_shared_in.cuh): Structure shared among _main_ and _workers_ to exchange debug info.
 
 
-## [GPU](./gpu_cluster/source_code/Cuda/) (CUDA)
+## [GPU](./gpu_cluster/source_code/Cuda) (CUDA)
 [Cuda_GPU.cu](./gpu_cluster/source_code/Cuda/Cuda_GPU.cu): Class representing GPU from the CPU point of view. Therefore, this object, while using CUDA functions and compiled by CUDA compiler, does not run directly on GPU. 
 
 [Cuda_kernel.cu](./gpu_cluster/source_code/Cuda/Cuda_kernel.cu): This file defines _kernel_execute()_ function, which is a wrapper for a function executed on GPU. The actuall kernel function that is exeuted on GPU is implemented in [kernel_by_ref.cu](./gpu_cluster/source_code/Cuda/kernel_by_ref.cu). See [Cuda_kernel.cuh](./gpu_cluster/source_code/Cuda/Cuda_kernel.cuh) for detailed explanation on why C and C++ does not mix. In short, C++ mangles the names during compilation, C does not mangle the names.
 
-## [Utility functions](./gpu_cluster/source_code/Utility/)
+## [Utility functions](./gpu_cluster/source_code/Utility)
   - [Console_print.cpp](./gpu_cluster/source_code/Utility/Console_print.cpp): Pretty console output.
   - [Stop_watch.cpp](gpu_cluster/source_code/Utility/Stop_watch.cpp): Time measurements.
  
