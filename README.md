@@ -15,8 +15,8 @@ This was a fun to program, as I have gained some experience with:
 
 ## C++ (CPU)
 [main.cpp](./gpu_cluster/source_code/main.cpp): Main file representing _main_ and _worker_ nodes
-  - _main_ node is differentiated by [const int] **commRank == ROOT_PROCESS** (defined in [const.h](./ gpu_cluster/source_code/const.h))
-  - _worker_ nodes are then all other nodes with **commRank != ROOT_PROCESS**
+  - _main_ node is differentiated by [const int] **commRank == ROOT_PROCESS** (defined in [const.h](./gpu_cluster/source_code/const.h))
+  - _worker_ nodes are all other nodes with **commRank != ROOT_PROCESS**
   
 [Process.cpp](./gpu_cluster/source_code/Process.cpp), [Process.hpp](./gpu_cluster/source_code/Process.hpp): Object representing both _main_ and _worker_ nodes (NOTICE: the same kind of _Process_ object represents different kinds of nodes)
   - NOTICE: The object has a regular OOP structure:
@@ -24,7 +24,11 @@ This was a fun to program, as I have gained some experience with:
     - [Process.hpp](./gpu_cluster/source_code/Process.hpp) contains declarations + implementations of [template functions](https://github.com/martin-garaj/gpu_cluster/blob/45a0ebc99051b16a3dbca8e8fcef00032a10187a/source_code/Process.hpp#L114) (template functions cannot be directly compiled from implementation in .hpp file)
 
 
-## CUDA<->C++ (shared memory)
+## [Unified memory](./gpu_cluster/source_code/Data_objects/) (CUDA<->C++)
+[Managed.cuh](./gpu_cluster/source_code/Data_objects/Managed.cuh): Inheriting from this class allows the object to be _unified memory_ (memory on GPU that is visible from CPU)
+  - [GPU_grid_in.cuh)](./gpu_cluster/source_code/Data_objects/GPU_grid_in.cuh): 
+  - [GPU_grid_out.cuh](./gpu_cluster/source_code/Data_objects/GPU_grid_out.cuh): 
+  - [GPU_shared_in.cuh](./gpu_cluster/source_code/Data_objects/GPU_shared_in.cuh):
 
 
 ## CUDA (GPU) 
