@@ -11,3 +11,6 @@ This was a fun to program, as I have gained some experience with:
 
 # File description
 [filename.txt](./path_to_txt/filename.txt): the main file documenting the development of this project
+
+
+some small changes
