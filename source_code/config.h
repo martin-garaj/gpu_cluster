@@ -16,4 +16,4 @@
  *                   |  YYYY/MM/DD  |   
  */
 
-#define TIME_TESTING_ITERATIONS					3
+#define TIME_TESTING_ITERATIONS					300000
