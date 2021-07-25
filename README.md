@@ -17,6 +17,11 @@ This was a fun to program, as I have gained some experience with:
   - _PBS Pro scripting_ for job distribution on cluster
   - general _Object Oriented Programming_ concepts to not get lost on the way :D
 
+# Code execution
+The below image illustrates how a cluster is structured into **nodes**, which are divided into _main_ and _worker_ processes. The program continues by spreading the data from _main_ to _workers_. _Workers_ process the data on GPU and send the result to _main_. This is repreated [TIME_TESTING_TERATIONS](https://github.com/martin-garaj/gpu_cluster/blob/af27874f09924c9091add07a025a89ac1e16cb18/source_code/config.h#L19) to generate [statistics](./output/300000_messages_1009.frontnode.OU).
+
+![program_execution_flow](./gpu_cluster.png)
+
 # File description
 ## PBS scripts
 [pbs_script.scr](./pbs_script.scr): PBS Pro script to allocate resources within cluster and run the executable ([line 109](https://github.com/martin-garaj/gpu_cluster/blob/fcde60d0c0ebed684a9ed1386eee799844226eda/pbs_script.scr#L109))
